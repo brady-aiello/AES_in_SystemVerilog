@@ -23,7 +23,7 @@
 module galois_multiply(
     input  a [7:0],
     input  b [7:0],
-    output logic p [15:0]
+    output logic  [7:0]out 
     );
     reg temp = b[0] & a[0];
     
@@ -36,6 +36,7 @@ module galois_multiply(
     logic row6[7:0] = {b[6] & a[7], b[6] & a[6], b[6] & a[5], b[6] & a[4], b[6] & a[3], b[6] & a[2], b[6] & a[1], b[6] & a[0]};
     logic row7[7:0] = {b[7] & a[7], b[7] & a[6], b[7] & a[5], b[7] & a[4], b[7] & a[3], b[7] & a[2], b[7] & a[1], b[7] & a[0]};
 
+    reg [15:0] p;
     assign p[0]  = row0[0];
     assign p[1]  = row0[1] ^ row1[0];
     assign p[2]  = row0[2] ^ row1[1] ^ row2[0];
@@ -53,6 +54,9 @@ module galois_multiply(
     assign p[14] = row7[7];
     assign p[15] = 0;
      
+    integer answer;
+    assign answer = p % 'b100011011; 
+    assign out = answer[7:0];
      
 //    always begin
 //        p[0]  <= row0[0];

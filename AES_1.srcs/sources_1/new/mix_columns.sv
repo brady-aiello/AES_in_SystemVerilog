@@ -24,4 +24,9 @@ module mix_columns(
     input [127:0] in,
     output [127:0] out
     );
+    reg temp2[127:0];
+    reg temp3[127:0];
+    galois_multiply gm0('h02, temp2[127:120]);
+    //TODO: Finish this module.
+    
 endmodule
