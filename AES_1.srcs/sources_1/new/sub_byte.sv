@@ -22,10 +22,10 @@
 
 module sub_byte(
     input  logic [7:0] in,
-    output logic [7:0] out
+    output logic [7:0] out  
     );
     
-    logic [7:0]s_box[255:0] =
+    logic [7:0]s_box[0:255] =
          {'h63, 'h7c, 'h77, 'h7b, 'hf2, 'h6b, 'h6f, 'hc5, 'h30, 'h01, 'h67, 'h2b, 'hfe, 'hd7, 'hab, 'h76,
          'hca, 'h82, 'hc9, 'h7d, 'hfa, 'h59, 'h47, 'hf0, 'had, 'hd4, 'ha2, 'haf, 'h9c, 'ha4, 'h72, 'hc0,
          'hb7, 'hfd, 'h93, 'h26, 'h36, 'h3f, 'hf7, 'hcc, 'h34, 'ha5, 'he5, 'hf1, 'h71, 'hd8, 'h31, 'h15,
