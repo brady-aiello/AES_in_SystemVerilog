@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 12/01/2017 03:11:12 PM
+// Create Date: 12/05/2017 03:36:15 PM
 // Design Name: 
-// Module Name: galois_multiply
+// Module Name: test_bench_mix_columns
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,15 +20,16 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module galois_multiply(
-    input  [7:0]a ,
-    input  [7:0]b,
-    output logic  [7:0]out 
-    );
-    //reg temp = b[0] & a[0];
-   
-   wire [14:0] temp0;
-   galois_mult_expand gme(a, b, temp0);
-   galois_mod gm(temp0, out);
-   
+module test_bench_mix_columns();
+    logic  [127:0] in_t1;
+    wire   [127:0] out_t1;
+    
+    mix_columns mix_col_0(in_t1, out_t1);
+    
+    initial begin
+         in_t1 <= 'h01020304010203040102030401020304;
+         #1;
+//         in_t1 <= 'h00010203000102030001020300010203;
+//         #1;
+    end
 endmodule
