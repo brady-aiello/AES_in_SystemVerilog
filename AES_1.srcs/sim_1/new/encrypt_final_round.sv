@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 12/05/2017 10:03:29 PM
+// Create Date: 12/05/2017 11:06:56 PM
 // Design Name: 
-// Module Name: test_bench_encrypt_round
+// Module Name: encrypt_final_round
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,17 +20,18 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module test_bench_encrypt_round();
-    logic [127:0] message;
-    logic [127:0] round_key;
-    wire  [127:0] out_t;
-     
-    encrypt_round er(message, round_key, out_t);
+module encrypt_final_round(
+    input [127:0] in,
+    input [127:0] round_key,
+    output [127:0] out
+    );
     
-    initial begin
-        message <=   'h0102030405060708090A0B0C0C0D0E0F;
-        round_key <= 'b0;
-        #5;
-    end
-   
+    wire [127:0] from_sub_b;
+    sub_bytes sb(in, from_sub_b);
+    
+    wire [127:0] from_shift;
+    shift_rows sr(from_sub_b, from_shift);
+    
+    assign out = from_shift ^ round_key;
+
 endmodule
