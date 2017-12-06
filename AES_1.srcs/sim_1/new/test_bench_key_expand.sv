@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 12/01/2017 06:02:24 PM
+// Create Date: 12/05/2017 07:16:55 PM
 // Design Name: 
-// Module Name: galois_field_modulus
+// Module Name: test_bench_key_expand
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,11 +20,15 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module galois_field_modulus(
-    input   reg [15:0] in,
-    output  reg [7:0] out
-    );
-    integer answer = in % 'b100011011; 
-    assign out = answer[7:0];
-
+module test_bench_key_expand();
+    logic [127:0] key_t;
+    wire [1407:0] out_t;
+    
+    key_expand ke(key_t, out_t);
+    initial begin
+        key_t <= 128'h0;
+        #10;
+        //key_t <= 'h00112233445566778899AABBCCDDEEFF;
+    end
+    
 endmodule

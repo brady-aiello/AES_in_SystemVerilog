@@ -20,18 +20,16 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module test_bench_g_func(
-
-    );
+module test_bench_g_func();
     logic  [31:0] in_t1;
     logic  [3:0] round_t;
     wire   [31:0] out_t1;
     
-    g_func gf0(in_t1, round_t, out_t1);
+    g_func gf_0(in_t1, round_t, out_t1);
     
     initial begin
-         round_t <= 4'b0000;
-         in_t1 <= 'h01020304;
+         round_t <= 4'b0001;
+         in_t1 <= 'h00000000;
          #1;
     end
 endmodule

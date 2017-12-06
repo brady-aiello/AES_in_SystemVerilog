@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 12/03/2017 08:28:59 PM
+// Create Date: 12/05/2017 10:03:29 PM
 // Design Name: 
-// Module Name: experiment_one_many
+// Module Name: test_bench_encrypt_round
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,10 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module experiment_one_many(
-    input [15:0] in,
-    output [15:0] out
+module test_bench_encrypt_round(
+
     );
-    assign out = in & 'b1;
-    
 endmodule

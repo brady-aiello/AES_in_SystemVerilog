@@ -34,7 +34,7 @@ module g_func(
     sub_byte sb2(shifted[15: 8], out[15: 8]);
     sub_byte sb3(shifted[ 7: 0], out[ 7: 0]);
     
-    logic [7:0]round_constant[0:9] = {'h8d,'h01,'h02,'h04,'h08,'h10,'h20,'h40,'h80,'h1b};
+    logic [7:0]round_constant[0:9] = {'h01,'h02,'h04,'h08,'h10,'h20,'h40,'h80,'h1b,'h36};
     assign out[31:24] = round_constant[round] ^ subbed;
     
     endmodule
